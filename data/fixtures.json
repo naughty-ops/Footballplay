@@ -1,0 +1,141 @@
+{
+  "fixtures": [
+    {
+      "group": "Group A",
+      "round": "Round 1",
+      "matches": [
+        {
+          "player1Id": "123456",
+          "player2Id": "345678",
+          "date": "2025-07-15",
+          "time": "18:00 IST"
+        },
+        {
+          "player1Id": "234567",
+          "player2Id": "456789",
+          "date": "2025-07-15",
+          "time": "19:30 IST"
+        }
+      ]
+    },
+    {
+      "group": "Group A",
+      "round": "Round 2",
+      "matches": [
+        {
+          "player1Id": "123456",
+          "player2Id": "456789",
+          "date": "2025-07-16",
+          "time": "18:00 IST"
+        },
+        {
+          "player1Id": "234567",
+          "player2Id": "345678",
+          "date": "2025-07-16",
+          "time": "19:30 IST"
+        }
+      ]
+    },
+    {
+      "group": "Group A",
+      "round": "Round 3",
+      "matches": [
+        {
+          "player1Id": "123456",
+          "player2Id": "234567",
+          "date": "2025-07-18",
+          "time": "20:00 IST"
+        },
+        {
+          "player1Id": "345678",
+          "player2Id": "456789",
+          "date": "2025-07-18",
+          "time": "21:30 IST"
+        }
+      ]
+    },
+    {
+      "group": "Group B",
+      "round": "Round 1",
+      "matches": [
+        {
+          "player1Id": "567890",
+          "player2Id": "789012",
+          "date": "2025-07-16",
+          "time": "18:00 IST"
+        },
+        {
+          "player1Id": "678901",
+          "player2Id": "890123",
+          "date": "2025-07-16",
+          "time": "19:30 IST"
+        }
+      ]
+    },
+    {
+      "group": "Group B",
+      "round": "Round 2",
+      "matches": [
+        {
+          "player1Id": "567890",
+          "player2Id": "678901",
+          "date": "2025-07-17",
+          "time": "18:00 IST"
+        },
+        {
+          "player1Id": "789012",
+          "player2Id": "890123",
+          "date": "2025-07-17",
+          "time": "19:30 IST"
+        }
+      ]
+    }
+  ],
+  "completedMatches": [
+    {
+      "player1Id": "123456",
+      "player2Id": "345678",
+      "date": "2025-07-15",
+      "time": "18:00 IST",
+      "score": "3-1",
+      "winnerId": "123456",
+      "group": "Group A"
+    },
+    {
+      "player1Id": "234567",
+      "player2Id": "456789",
+      "date": "2025-07-15",
+      "time": "19:30 IST",
+      "score": "3-1",
+      "winnerId": "234567",
+      "group": "Group A"
+    },
+    {
+      "player1Id": "123456",
+      "player2Id": "456789",
+      "date": "2025-07-16",
+      "time": "18:00 IST",
+      "score": "2-1",
+      "winnerId": "123456",
+      "group": "Group A"
+    },
+    {
+      "player1Id": "567890",
+      "player2Id": "789012",
+      "date": "2025-07-16",
+      "time": "18:00 IST",
+      "score": "2-0",
+      "winnerId": "567890",
+      "group": "Group B"
+    },
+    {
+      "player1Id": "678901",
+      "player2Id": "890123",
+      "date": "2025-07-16",
+      "time": "19:30 IST",
+      "score": "2-1",
+      "winnerId": "678901",
+      "group": "Group B"
+    }
+  ]
+}

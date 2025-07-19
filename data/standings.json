@@ -1,0 +1,110 @@
+{
+  "groups": [
+    {
+      "name": "Group A",
+      "teams": [
+        {
+          "id": "123456",
+          "name": "Rahul Sharma",
+          "position": 1,
+          "played": 3,
+          "won": 3,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 8,
+          "goalsAgainst": 2,
+          "points": 9
+        },
+        {
+          "id": "234567",
+          "name": "Athul Kumar",
+          "position": 2,
+          "played": 3,
+          "won": 2,
+          "drawn": 0,
+          "lost": 1,
+          "goalsFor": 5,
+          "goalsAgainst": 3,
+          "points": 6
+        },
+        {
+          "id": "345678",
+          "name": "Vikram Singh",
+          "position": 3,
+          "played": 3,
+          "won": 1,
+          "drawn": 0,
+          "lost": 2,
+          "goalsFor": 4,
+          "goalsAgainst": 6,
+          "points": 3
+        },
+        {
+          "id": "456789",
+          "name": "Aditya Patel",
+          "position": 4,
+          "played": 3,
+          "won": 0,
+          "drawn": 0,
+          "lost": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 7,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "name": "Group B",
+      "teams": [
+        {
+          "id": "567890",
+          "name": "Rohan Mehta",
+          "position": 1,
+          "played": 2,
+          "won": 2,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 5,
+          "goalsAgainst": 1,
+          "points": 6
+        },
+        {
+          "id": "678901",
+          "name": "Suresh Nair",
+          "position": 2,
+          "played": 2,
+          "won": 1,
+          "drawn": 0,
+          "lost": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "points": 3
+        },
+        {
+          "id": "789012",
+          "name": "Manish Gupta",
+          "position": 3,
+          "played": 2,
+          "won": 0,
+          "drawn": 1,
+          "lost": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "points": 1
+        },
+        {
+          "id": "890123",
+          "name": "Karan Verma",
+          "position": 4,
+          "played": 2,
+          "won": 0,
+          "drawn": 1,
+          "lost": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "points": 1
+        }
+      ]
+    }
+  ]
+}

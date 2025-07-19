@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Hub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <h1><i class="fas fa-cog"></i> Football Hub Admin</h1>
+      <nav class="admin-nav">
+        <button class="nav-btn active" data-tab="players"><i class="fas fa-users"></i> Players</button>
+        <button class="nav-btn" data-tab="fixtures"><i class="fas fa-calendar-alt"></i> Fixtures</button>
+        <button class="nav-btn" data-tab="standings"><i class="fas fa-table"></i> Standings</button>
+        <button class="nav-btn" data-tab="settings"><i class="fas fa-cog"></i> Settings</button>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <!-- Players Management -->
+      <section class="admin-section active" id="players-section">
+        <div class="section-header">
+          <h2><i class="fas fa-users"></i> Player Management</h2>
+          <button class="btn btn-primary" id="addPlayerBtn"><i class="fas fa-plus"></i> Add Player</button>
+        </div>
+        
+        <div class="search-bar">
+          <input type="text" id="playerSearch" placeholder="Search players...">
+          <button class="btn btn-search"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="table-responsive">
+          <table class="admin-table" id="playersTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Points</th>
+                <th>Group</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Fixtures Management -->
+      <section class="admin-section" id="fixtures-section">
+        <div class="section-header">
+          <h2><i class="fas fa-calendar-alt"></i> Fixture Management</h2>
+          <div class="btn-group">
+            <button class="btn btn-primary" id="addFixtureBtn"><i class="fas fa-plus"></i> Add Fixture</button>
+            <button class="btn btn-secondary" id="generateFixturesBtn"><i class="fas fa-magic"></i> Generate Round</button>
+          </div>
+        </div>
+        
+        <div class="filter-bar">
+          <select id="fixtureGroupFilter" class="form-select">
+            <option value="all">All Groups</option>
+            <option value="A">Group A</option>
+            <option value="B">Group B</option>
+            <option value="C">Group C</option>
+            <option value="D">Group D</option>
+          </select>
+          <select id="fixtureRoundFilter" class="form-select">
+            <option value="all">All Rounds</option>
+            <option value="1">Round 1</option>
+            <option value="2">Round 2</option>
+            <option value="3">Round 3</option>
+            <option value="4">Round 4</option>
+          </select>
+          <select id="fixtureStatusFilter" class="form-select">
+            <option value="all">All Statuses</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        
+        <div class="table-responsive">
+          <table class="admin-table" id="fixturesTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Player 1</th>
+                <th>Player 2</th>
+                <th>Group</th>
+                <th>Round</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Winner</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Standings Management -->
+      <section class="admin-section" id="standings-section">
+        <div class="section-header">
+          <h2><i class="fas fa-table"></i> Standings Management</h2>
+          <button class="btn btn-primary" id="updateStandingsBtn"><i class="fas fa-sync-alt"></i> Update Standings</button>
+        </div>
+        
+        <div class="filter-bar">
+          <select id="standingsGroupFilter" class="form-select">
+            <option value="all">All Groups</option>
+            <option value="A">Group A</option>
+            <option value="B">Group B</option>
+            <option value="C">Group C</option>
+            <option value="D">Group D</option>
+          </select>
+        </div>
+        
+        <div class="table-responsive">
+          <table class="admin-table" id="standingsTable">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Player</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>Pts</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section class="admin-section" id="settings-section">
+        <div class="section-header">
+          <h2><i class="fas fa-cog"></i> System Settings</h2>
+        </div>
+        
+        <div class="settings-grid">
+          <div class="settings-card">
+            <h3><i class="fas fa-database"></i> Data Management</h3>
+            <div class="form-group">
+              <label>Backup Data</label>
+              <button class="btn btn-secondary" id="backupBtn"><i class="fas fa-download"></i> Create Backup</button>
+            </div>
+            <div class="form-group">
+              <label>Restore Data</label>
+              <input type="file" id="restoreFile" accept=".json" class="form-control">
+              <button class="btn btn-secondary" id="restoreBtn"><i class="fas fa-upload"></i> Restore Backup</button>
+            </div>
+          </div>
+          
+          <div class="settings-card">
+            <h3><i class="fas fa-bell"></i> Notifications</h3>
+            <div class="form-group">
+              <label>Send Test Notification</label>
+              <button class="btn btn-secondary" id="testNotificationBtn"><i class="fas fa-bell"></i> Send Test</button>
+            </div>
+          </div>
+          
+          <div class="settings-card">
+            <h3><i class="fas fa-user-shield"></i> Admin Security</h3>
+            <div class="form-group">
+              <label>Change Password</label>
+              <input type="password" id="newPassword" placeholder="New Password" class="form-control">
+              <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control">
+              <button class="btn btn-primary" id="changePasswordBtn"><i class="fas fa-key"></i> Change Password</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Player Modal -->
+    <div class="admin-modal" id="playerModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="playerModalTitle">Add New Player</h2>
+        
+        <form id="playerForm">
+          <input type="hidden" id="playerId">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="playerName">Full Name</label>
+              <input type="text" id="playerName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="playerPoints">Points</label>
+              <input type="number" id="playerPoints" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="playerPosition">Position</label>
+              <input type="number" id="playerPosition" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="playerGroup">Group</label>
+              <select id="playerGroup" class="form-control">
+                <option value="">None</option>
+                <option value="A">Group A</option>
+                <option value="B">Group B</option>
+                <option value="C">Group C</option>
+                <option value="D">Group D</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="playerImage">Player Image</label>
+              <input type="file" id="playerImage" accept="image/*" class="form-control">
+              <small>Recommended size: 200x200 pixels</small>
+            </div>
+            <div class="form-group">
+              <label for="playerImagePreview">Preview</label>
+              <div class="image-preview" id="playerImagePreview">
+                <img src="" alt="Player Image Preview" id="playerImagePreviewImg">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelPlayerBtn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Player</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Fixture Modal -->
+    <div class="admin-modal" id="fixtureModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="fixtureModalTitle">Add New Fixture</h2>
+        
+        <form id="fixtureForm">
+          <input type="hidden" id="fixtureId">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fixtureDate">Date</label>
+              <input type="date" id="fixtureDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="fixtureTime">Time</label>
+              <input type="time" id="fixtureTime" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="player1Select">Player 1</label>
+              <select id="player1Select" class="form-control" required>
+                <option value="">Select Player</option>
+                <!-- Will be populated by JavaScript -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="player2Select">Player 2</label>
+              <select id="player2Select" class="form-control" required>
+                <option value="">Select Player</option>
+                <!-- Will be populated by JavaScript -->
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fixtureGroup">Group</label>
+              <select id="fixtureGroup" class="form-control" required>
+                <option value="A">Group A</option>
+                <option value="B">Group B</option>
+                <option value="C">Group C</option>
+                <option value="D">Group D</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fixtureRound">Round</label>
+              <select id="fixtureRound" class="form-control" required>
+                <option value="1">Round 1</option>
+                <option value="2">Round 2</option>
+                <option value="3">Round 3</option>
+                <option value="4">Round 4</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row" id="resultFields" style="display: none;">
+            <div class="form-group">
+              <label for="fixtureScore">Score</label>
+              <input type="text" id="fixtureScore" class="form-control" placeholder="e.g. 2-1">
+            </div>
+            <div class="form-group">
+              <label for="fixtureWinner">Winner</label>
+              <select id="fixtureWinner" class="form-control">
+                <option value="draw">Draw</option>
+                <option value="player1">Player 1</option>
+                <option value="player2">Player 2</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="fixtureCompleted"> Match Completed
+            </label>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelFixtureBtn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Fixture</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="admin-modal" id="confirmModal">
+      <div class="modal-content small">
+        <h2 id="confirmModalTitle">Confirm Action</h2>
+        <p id="confirmModalMessage">Are you sure you want to perform this action?</p>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelConfirmBtn">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmBtn">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

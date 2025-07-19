@@ -1,0 +1,250 @@
+{
+  "players": {
+    "123456": {
+      "id": "123456",
+      "name": "Rahul Sharma",
+      "img": "player1.jpg",
+      "position": 1,
+      "points": 1200,
+      "matchesPlayed": 25,
+      "matchesWon": 18,
+      "goalsScored": 45,
+      "tournamentStats": {
+        "group": "A",
+        "groupPosition": 1,
+        "matchesPlayed": 3,
+        "wins": 3,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 2,
+        "points": 9
+      },
+      "nextMatch": {
+        "opponentId": "234567",
+        "opponentName": "Athul Kumar",
+        "opponentImg": "player2.jpg",
+        "date": "July 18, 2025",
+        "time": "20:00 IST"
+      },
+      "recentMatches": [
+        {
+          "opponentId": "345678",
+          "opponentName": "Vikram Singh",
+          "opponentImg": "player3.jpg",
+          "result": "W",
+          "score": "3-1",
+          "date": "July 15, 2025"
+        },
+        {
+          "opponentId": "456789",
+          "opponentName": "Aditya Patel",
+          "opponentImg": "player4.jpg",
+          "result": "L",
+          "score": "1-2",
+          "date": "July 12, 2025"
+        },
+        {
+          "opponentId": "567890",
+          "opponentName": "Rohan Mehta",
+          "opponentImg": "player5.jpg",
+          "result": "W",
+          "score": "4-0",
+          "date": "July 8, 2025"
+        }
+      ],
+      "advancedStats": {
+        "avgGoals": 1.8,
+        "cleanSheets": 5,
+        "passAccuracy": 78,
+        "shotsOnTarget": 65
+      }
+    },
+    "234567": {
+      "id": "234567",
+      "name": "Athul Kumar",
+      "img": "player2.jpg",
+      "position": 2,
+      "points": 1150,
+      "matchesPlayed": 24,
+      "matchesWon": 17,
+      "goalsScored": 42,
+      "tournamentStats": {
+        "group": "A",
+        "groupPosition": 2,
+        "matchesPlayed": 3,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 5,
+        "goalsAgainst": 3,
+        "points": 6
+      },
+      "nextMatch": {
+        "opponentId": "123456",
+        "opponentName": "Rahul Sharma",
+        "opponentImg": "player1.jpg",
+        "date": "July 18, 2025",
+        "time": "20:00 IST"
+      },
+      "recentMatches": [
+        {
+          "opponentId": "678901",
+          "opponentName": "Suresh Nair",
+          "opponentImg": "player6.jpg",
+          "result": "W",
+          "score": "2-0",
+          "date": "July 14, 2025"
+        },
+        {
+          "opponentId": "345678",
+          "opponentName": "Vikram Singh",
+          "opponentImg": "player3.jpg",
+          "result": "D",
+          "score": "2-2",
+          "date": "July 10, 2025"
+        },
+        {
+          "opponentId": "456789",
+          "opponentName": "Aditya Patel",
+          "opponentImg": "player4.jpg",
+          "result": "W",
+          "score": "3-1",
+          "date": "July 6, 2025"
+        }
+      ],
+      "advancedStats": {
+        "avgGoals": 1.75,
+        "cleanSheets": 4,
+        "passAccuracy": 75,
+        "shotsOnTarget": 62
+      }
+    },
+    "345678": {
+      "id": "345678",
+      "name": "Vikram Singh",
+      "img": "player3.jpg",
+      "position": 3,
+      "points": 1100,
+      "matchesPlayed": 23,
+      "matchesWon": 15,
+      "goalsScored": 38,
+      "tournamentStats": {
+        "group": "A",
+        "groupPosition": 3,
+        "matchesPlayed": 3,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "points": 3
+      }
+    },
+    "456789": {
+      "id": "456789",
+      "name": "Aditya Patel",
+      "img": "player4.jpg",
+      "position": 4,
+      "points": 1050,
+      "matchesPlayed": 22,
+      "matchesWon": 14,
+      "goalsScored": 35,
+      "tournamentStats": {
+        "group": "A",
+        "groupPosition": 4,
+        "matchesPlayed": 3,
+        "wins": 0,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 1,
+        "goalsAgainst": 7,
+        "points": 0
+      }
+    },
+    "567890": {
+      "id": "567890",
+      "name": "Rohan Mehta",
+      "img": "player5.jpg",
+      "position": 5,
+      "points": 1000,
+      "matchesPlayed": 21,
+      "matchesWon": 13,
+      "goalsScored": 32,
+      "tournamentStats": {
+        "group": "B",
+        "groupPosition": 1,
+        "matchesPlayed": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 5,
+        "goalsAgainst": 1,
+        "points": 6
+      }
+    },
+    "678901": {
+      "id": "678901",
+      "name": "Suresh Nair",
+      "img": "player6.jpg",
+      "position": 6,
+      "points": 950,
+      "matchesPlayed": 20,
+      "matchesWon": 12,
+      "goalsScored": 30,
+      "tournamentStats": {
+        "group": "B",
+        "groupPosition": 2,
+        "matchesPlayed": 2,
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 3,
+        "goalsAgainst": 3,
+        "points": 3
+      }
+    },
+    "789012": {
+      "id": "789012",
+      "name": "Manish Gupta",
+      "img": "player7.jpg",
+      "position": 7,
+      "points": 900,
+      "matchesPlayed": 19,
+      "matchesWon": 11,
+      "goalsScored": 28,
+      "tournamentStats": {
+        "group": "B",
+        "groupPosition": 3,
+        "matchesPlayed": 2,
+        "wins": 0,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 2,
+        "goalsAgainst": 4,
+        "points": 1
+      }
+    },
+    "890123": {
+      "id": "890123",
+      "name": "Karan Verma",
+      "img": "player8.jpg",
+      "position": 8,
+      "points": 850,
+      "matchesPlayed": 18,
+      "matchesWon": 10,
+      "goalsScored": 25,
+      "tournamentStats": {
+        "group": "B",
+        "groupPosition": 4,
+        "matchesPlayed": 2,
+        "wins": 0,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 1,
+        "goalsAgainst": 3,
+        "points": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Football Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Notification System -->
+  <div class="notification-container" id="notificationContainer"></div>
+
+  <!-- Navbar -->
+  <div class="navbar-container">
+    <div class="navbar">
+      <div class="nav-indicator"></div>
+      <div class="nav-items">
+        <div class="nav-item active" data-tab="home">Home</div>
+        <div class="nav-item" data-tab="today">Today</div>
+        <div class="nav-item" data-tab="table">Table</div>
+        <div class="nav-item" data-tab="fixture">Fixture</div>
+        <a href="admin/" class="nav-item admin-link" data-tab="admin"><i class="fas fa-lock"></i> Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Home Content -->
+  <div class="content-container home-content">
+    <div class="image-card">
+      <div class="scroller" id="scroller">
+       <img src="images/1.jpg" alt="Football">
+       <img src="images/2.jpg" alt="Football">
+       <img src="images/3.jpg" alt="Football">
+       <img src="images/4.jpg" alt="Football">
+       <img src="images/5.jpg" alt="Football">
+       <img src="images/6.jpg" alt="Football">
+      </div>
+    </div>
+
+    <h2 class="section-title">Latest News</h2>
+    <div class="news-card">
+      <div class="news-header">
+        <h3 class="news-title">🔥 Clash Alert: Rahul vs Athul Postponed!</h3>
+        <span class="news-date">July 16, 2025</span>
+      </div>
+      <p class="news-excerpt">
+        Tonight's much-awaited showdown between Rahul and Athul is on hold until midnight! Players who fail to respond or show up will face automatic disqualification. Stay ready!
+      </p>
+    </div>
+    
+    <div class="news-card">
+      <div class="news-header">
+        <h3 class="news-title">🚨 Updated Fixtures: Who Plays Who?</h3>
+        <span class="news-date">July 16, 2025</span>
+      </div>
+      <p class="news-excerpt">
+        The new match schedule is out! Check your timings and gear up — surprises await. Remember: missing your slot could cost you the title!
+      </p>
+    </div>
+    
+    <div class="news-card hidden-news">
+      <div class="news-header">
+        <h3 class="news-title">⚡️ Big Surprises Coming Tonight</h3>
+        <span class="news-date">July 16, 2025</span>
+      </div>
+      <p class="news-excerpt">
+        Rumors of a wildcard entry, bonus matches, and last-minute twists are making waves. Keep your controllers ready and notifications on — you won't want to miss what's next!
+      </p>
+    </div>
+
+    <div class="news-card hidden-news">
+      <div class="news-header">
+        <h3 class="news-title">Champions League Draw Results</h3>
+        <span class="news-date">June 14, 2023</span>
+      </div>
+      <p class="news-excerpt">The Champions League group stage draw has been completed, with defending champions Manchester City facing Bayern Munich in the group stage.</p>
+    </div>
+
+    <button class="view-more-btn" id="viewMoreBtn">
+      View More News <i class="fas fa-chevron-down"></i>
+    </button>
+
+    <!-- Players List Section -->
+    <div class="players-section">
+      <h2 class="section-title">Top Players</h2>
+      <div class="players-grid" id="topPlayersGrid">
+        <!-- Will be populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+    
+  <!-- Player Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-modal-content">
+      <span class="close-modal" onclick="closePlayerModal()">&times;</span>
+      <div class="player-header">
+        <img src="" alt="Player" class="player-header-img" id="modalPlayerImg">
+        <div class="player-header-info">
+          <h2 id="modalPlayerName">Player Name</h2>
+          <p id="modalPlayerId">eFootball ID: 123456</p>
+          <p id="modalPlayerPosition">Position: 1st</p>
+          <p id="modalPlayerPoints">Points: 1200</p>
+        </div>
+        <div class="player-header-rank" id="modalPlayerRank">#1</div>
+      </div>
+      
+      <div class="player-details">
+        <div class="stats-tabs">
+          <div class="stats-tab active" data-tab="overview">Overview</div>
+          <div class="stats-tab" data-tab="matches">Matches</div>
+          <div class="stats-tab" data-tab="stats">Advanced Stats</div>
+        </div>
+        
+        <div class="stats-tab-content active" id="overviewTab">
+          <div class="detail-section">
+            <h3><i class="fas fa-chart-line"></i> Player Stats</h3>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-value" id="matchesPlayed">25</div>
+                <div class="stat-label">Matches Played</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value" id="matchesWon">18</div>
+                <div class="stat-label">Matches Won</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value" id="winRate">72%</div>
+                <div class="stat-label">Win Rate</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value" id="goalsScored">45</div>
+                <div class="stat-label">Goals Scored</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3><i class="fas fa-trophy"></i> Tournament Performance</h3>
+            <div class="tournament-stats">
+              <div class="tournament-stat-card">
+                <h4>Current Group</h4>
+                <p id="currentGroup">A</p>
+              </div>
+              <div class="tournament-stat-card">
+                <h4>Group Position</h4>
+                <p id="groupPosition">1st</p>
+              </div>
+              <div class="tournament-stat-card">
+                <h4>Group Points</h4>
+                <p id="groupPoints">9</p>
+              </div>
+              <div class="tournament-stat-card">
+                <h4>Group Goals</h4>
+                <p id="groupGoals">12</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3><i class="fas fa-calendar-alt"></i> Next Match</h3>
+            <div class="match-item">
+              <div class="match-teams">
+                <div class="match-team">
+                  <img src="" alt="Player" id="nextMatchPlayerImg">
+                  <span id="nextMatchPlayerName">Player Name</span>
+                </div>
+                <div class="match-result">VS</div>
+                <div class="match-team">
+                  <img src="" alt="Opponent" id="nextMatchOpponentImg">
+                  <span id="nextMatchOpponentName">Opponent Name</span>
+                </div>
+              </div>
+              <div class="match-info">
+                <span id="nextMatchDate">Date</span>
+                <span id="nextMatchTime">Time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stats-tab-content" id="matchesTab">
+          <div class="detail-section">
+            <h3><i class="fas fa-history"></i> Recent Matches</h3>
+            <div class="matches-list" id="recentMatches">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="stats-tab-content" id="statsTab">
+          <div class="detail-section">
+            <h3><i class="fas fa-chart-pie"></i> Performance Metrics</h3>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-value" id="avgGoals">1.8</div>
+                <div class="stat-label">Avg Goals/Match</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value" id="cleanSheets">5</div>
+                <div class="stat-label">Clean Sheets</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value" id="passAccuracy">78%</div>
+                <div class="stat-label">Pass Accuracy</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value" id="shotsOnTarget">65%</div>
+                <div class="stat-label">Shots on Target</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3><i class="fas fa-star"></i> Match Highlights</h3>
+            <div class="match-highlights">
+              <div class="highlight-title">Last Match Performance</div>
+              <div class="highlight-stats">
+                <div class="highlight-stat">
+                  <i class="fas fa-futbol"></i> 3 Goals
+                </div>
+                <div class="highlight-stat">
+                  <i class="fas fa-assistive-listening-systems"></i> 1 Assist
+                </div>
+                <div class="highlight-stat">
+                  <i class="fas fa-running"></i> 8.2 km
+                </div>
+                <div class="highlight-stat">
+                  <i class="fas fa-tachometer-alt"></i> 92% Energy
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Today Content -->
+  <div class="content-container today-content" style="display: none;">
+    <h2 class="section-title">Today's Matches</h2>
+    <div id="todaysMatchesContainer">
+      <!-- Will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Table Content -->
+  <div class="content-container table-content" style="display: none;">
+    <h2 class="section-title">Tournament Standings</h2>
+    <div id="standingsContainer">
+      <!-- Will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Fixture Content -->
+  <div class="content-container fixture-content" style="display: none;">
+    <h2 class="section-title"><i class="far fa-calendar-alt"></i> Tournament Fixtures</h2>
+    
+    <!-- Compact Group Navigation -->
+    <div class="group-navigation">
+      <div class="group-btn active" data-group="all">All Groups</div>
+      <div class="group-btn" data-group="A">Group A</div>
+      <div class="group-btn" data-group="B">Group B</div>
+      <div class="group-btn" data-group="C">Group C</div>
+      <div class="group-btn" data-group="D">Group D</div>
+      <div class="group-btn" data-group="completed">Results</div>
+    </div>
+    
+    <!-- Minimal Round Navigation -->
+    <div class="round-navigation">
+      <div class="round-btn active" data-round="all">All Rounds</div>
+      <div class="round-btn" data-round="1">Round 1</div>
+      <div class="round-btn" data-round="2">Round 2</div>
+      <div class="round-btn" data-round="3">Round 3</div>
+      <div class="round-btn" data-round="4">Round 4</div>
+      <div class="round-btn" data-round="5">Round 5</div>
+    </div>
+    
+    <div class="fixture-list" id="fixtureList">
+      <!-- Will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Professional Scroll-to-Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/notifications.js"></script>
+  <script src="js/players.js"></script>
+  <script src="js/fixtures.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
